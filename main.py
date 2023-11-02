@@ -63,34 +63,34 @@ async def values(values: Values):
 
 @router.post("/image")
 async def image(file: UploadFile = File(...)):
-    with open(f"{file.filename}", "wb") as buffer:
-        buffer.write(file.file.read())
+    #with open(f"{file.filename}", "wb") as buffer:
+        #buffer.write(file.file.read())
 
-        # Reset the "cursor" to the beginning of the file
-        file.file.seek(0)
+    # Reset the "cursor" to the beginning of the file
+    file.file.seek(0)
 
-        # Get image content
-        file_image = file.file.read()
+    # Get image content
+    file_image = file.file.read()
 
-        # Load image
-        img = Image.open(io.BytesIO(file_image))
+    # Load image
+    img = Image.open(io.BytesIO(file_image))
 
-        # Get byte of file
-        img_bytes = io.BytesIO()
+    # Get byte of file
+    img_bytes = io.BytesIO()
 
-        img.save(img_bytes, format="JPEG")
+    img.save(img_bytes, format="JPEG")
 
-        validation_report = mri_detector(verification_model)
-        validate_mri_image = validation_report.get_detections(img)
-        print(validate_mri_image)
+    validation_report = mri_detector(verification_model)
+    validate_mri_image = validation_report.get_detections(img)
+    print(validate_mri_image)
 
-        if validate_mri_image is True:
-            classification_report = mri_classifier(classification_model)
-            classify_mri_image = classification_report.get_detections(img)
+    if validate_mri_image is True:
+        classification_report = mri_classifier(classification_model)
+        classify_mri_image = classification_report.get_detections(img)
 
-            print(classify_mri_image)
+        print(classify_mri_image)
 
-            return {"message": classify_mri_image}
+        return {"message": classify_mri_image}
 
     return {"message": "Not a Valid MRI Image"}
 
@@ -99,6 +99,6 @@ app.include_router(router, prefix="")
 if __name__ == "__main__":
     uvicorn.run(
         "main:app",
-        port=5000,
+        port=5005,
         reload=True
     )
