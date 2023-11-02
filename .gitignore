@@ -1,0 +1,7 @@
+training/computer_vision/data/
+training/image_classification/data/
+training/image_classification/test_images/
+training/tabular_classification/data/
+venv/
+kaggle/image_classification/test_images/
+api/kaggle/__pycache__/

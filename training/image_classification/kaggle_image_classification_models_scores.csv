@@ -1,0 +1,8 @@
+model,scores
+ResNet50,50.19
+MobileNet,50.19
+EfficientNet,50.19
+Decision Tree,51.56
+Adaboost,50.0
+Xgboost,42.19
+Random Forest,48.44
