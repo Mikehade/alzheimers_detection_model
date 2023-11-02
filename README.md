@@ -10,9 +10,6 @@ This pipeline is developed as an AI-Enabled pipeline for assisting Alzheimer's d
 - create virtual environment  (__python -m venv venv__)
 - activate virtual environment (Windows: __venv/Scripts/activate__, Linux/Mac: __source venv/bin/activate__)
 - install requirements.txt file (__pip install -r requirements.txt__)
-- cd to kaggle api (__cd api/kaggle__)
-- lunch flask app (__flask run__ or __python app.py__)
+- lunch fastapi app (__python main.py__)
 
-Numeric data for testing first stage is available in kaggle/tabular_classification/kaggle_test_data.csv
-Image data for testing second stage based on results of first can be found in kaggle/image_classification/test_images
 
