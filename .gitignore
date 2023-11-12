@@ -6,3 +6,4 @@ venv/
 kaggle/image_classification/test_images/
 api/kaggle/__pycache__/
 ./__pycache__/
+__pycache__
