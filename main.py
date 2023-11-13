@@ -10,7 +10,7 @@ import joblib
 import io
 from numpy import array
 
-app = FastAPI()
+app = FastAPI(title="AI-Enabled Pipeline for Alzheimer's Disease Diagnosis API")
 router = APIRouter()
 
 rf_classification_model  = joblib.load(f"./model_weights/alzheimers_random_forest_92.joblib")
@@ -34,6 +34,14 @@ class Values(BaseModel):
     etiv: int
     nwbv: float
     asf: float
+
+@app.get("/", status_code=200)
+def hello() -> str:
+    """
+    Route for welcoming"""
+
+    return "Welcome to the AI-Enabled Pipeline for Alzheimer's Disease Diagnosis"
+
 
 @router.post("/values")
 async def values(values: Values):
