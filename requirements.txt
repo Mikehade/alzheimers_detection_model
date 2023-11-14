@@ -7,3 +7,4 @@ pytorch==1.0.2
 opencv-python-headless==4.8.1.78
 dill==0.3.7
 scikit-learn==1.2.2
+streamlit==0.60.0
