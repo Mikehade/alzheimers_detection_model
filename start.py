@@ -4,18 +4,14 @@ from os import system
 
 st.set_page_config(layout="centered")
 
-def main():
+st.title('Alzheimers AI Pipeline')
 
-    st.title('Alzheimers AI Pipeline')
+st.markdown("## AI-Enabled Pipeline for Alzheimer's Disease Diagnosis Pipeline")
 
-    st.markdown("## AI-Enabled Pipeline for Alzheimer's Disease Diagnosis Pipeline")
-
-    #value = st.number_input('Enter a number', 1, 10)
+#value = st.number_input('Enter a number', 1, 10)
 
 
-    if st.button('Start'):
-        nav_page('numeric_data')
+if st.button('Start'):
+    nav_page('numeric_data')
 
-if __name__ == "__main__":
-    system("streamlit run main.py")
 
