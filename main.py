@@ -9,8 +9,10 @@ from PIL import Image
 import joblib
 import io
 from numpy import array
+import subprocess
+from time import sleep
 
-app = FastAPI()
+app = FastAPI(title="AI-Enabled Pipeline for Alzheimer's Disease Diagnosis API")
 router = APIRouter()
 
 rf_classification_model  = joblib.load(f"./model_weights/alzheimers_random_forest_92.joblib")
@@ -35,10 +37,18 @@ class Values(BaseModel):
     nwbv: float
     asf: float
 
+@app.get("/", status_code=200)
+def hello() -> str:
+    """
+    Route for welcoming"""
+
+    return "Welcome to the AI-Enabled Pipeline for Alzheimer's Disease Diagnosis"
+
+
 @router.post("/values")
 async def values(values: Values):
-    print(values)
-    print(values.visit)
+    #print(values)
+    #print(values.visit)
 
     values_list = [values.visit, 
                     values.mr_delay,
@@ -63,6 +73,7 @@ async def values(values: Values):
 
 @router.post("/image")
 async def image(file: UploadFile = File(...)):
+    print(type(file))
     #with open(f"{file.filename}", "wb") as buffer:
         #buffer.write(file.file.read())
 
@@ -82,13 +93,13 @@ async def image(file: UploadFile = File(...)):
 
     validation_report = mri_detector(verification_model)
     validate_mri_image = validation_report.get_detections(img)
-    print(validate_mri_image)
+    #print(validate_mri_image)
 
     if validate_mri_image is True:
         classification_report = mri_classifier(classification_model)
         classify_mri_image = classification_report.get_detections(img)
 
-        print(classify_mri_image)
+        #print(classify_mri_image)
 
         return {"message": classify_mri_image}
 
@@ -102,3 +113,8 @@ if __name__ == "__main__":
         port=5005,
         reload=True
     )
+
+    #sleep(30) # delay for 2 minutes
+    #subprocess.Popen(["streamlit", "run", "start.py"])
+
+    

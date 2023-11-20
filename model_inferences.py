@@ -29,7 +29,7 @@ class mri_detector:
             for i in result.boxes.cls:
                 predictions.append(model.names[int(i)])
                 confidences.append(confs_list[track])
-                print(model.names[int(i)], confs_list[track])
+                #print(model.names[int(i)], confs_list[track])
                 track += 1
 
         print(predictions, confidences)
@@ -97,7 +97,7 @@ class mri_classifier:
 
             prediction = preds[max_ind]
 
-            print(prediction, probability)
+            #print(prediction, probability)
         
             #check for predictions with high confidence level
             if prediction is not None:
