@@ -16,7 +16,9 @@ recommendation_dict = { "NonDemented": ["Live Brain Healthy Lifestyle",
     "VeryMildDemented": ["Some medications would be prescribed",
                 "Engage in cognitive training and rehabilitation programs",
                 "Implement safety measures at home to reduce accidents",
-                "Join support groups"] }
+                "Join support groups"],
+    
+    "Not a Valid MRI Image": ["Please provide a valid MRI Image"]}
 
 
 st.title('MRI Image Data')
