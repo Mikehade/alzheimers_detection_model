@@ -11,5 +11,8 @@ This pipeline is developed as an AI-Enabled pipeline for assisting Alzheimer's d
 - activate virtual environment (Windows: __venv/Scripts/activate__, Linux/Mac: __source venv/bin/activate__)
 - install requirements.txt file (__pip install -r requirements.txt__)
 - lunch fastapi app (__python main.py__)
+- launch streamlit app in separate terminal (__streamlit run start.py__)
+
+
 
 
