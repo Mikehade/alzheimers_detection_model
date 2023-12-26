@@ -37,12 +37,16 @@ if uploaded_file is not None:
         #convert image to bytes-like object that API requires
         image_bytes = uploaded_file.getvalue()
         response_mri = mri_data_request(image_bytes)
-        
-        if response_mri["message"]:
-            st.markdown(f"## {response_mri['message']}")
 
-            for i in recommendation_dict[response_mri['message']]:
-                st.write(f"- {i}")
+        if response_mri:
+        
+            if response_mri["message"]:
+                st.markdown(f"## {response_mri['message']}")
+    
+                for i in recommendation_dict[response_mri['message']]:
+                    st.write(f"- {i}")
+            else:
+                st.markdown(f"## Not Available. Please try again later.")
         else:
-            st.markdown(f"## Not Available. Please try again later.")
+              st.markdown(f"## Not a Valid MRI Image.")
             pass
