@@ -38,6 +38,7 @@ if uploaded_file is not None:
         image_bytes = uploaded_file.getvalue()
         response_mri = mri_data_request(image_bytes)
 
+        #check if response mri is None
         if response_mri:
         
             if response_mri["message"]:
