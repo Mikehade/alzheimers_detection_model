@@ -49,6 +49,5 @@ if uploaded_file is not None:
             else:
                 st.markdown(f"## Not Available. Please try again later.")
         else:
-            st.markdown(f"## Not a Valid MRI Image.")
-            st.write(f"- Please provide a valid MRI Image")
+            st.markdown(f"## Not a Valid MRI Image. Please provide a valid MRI Image.")
             pass
