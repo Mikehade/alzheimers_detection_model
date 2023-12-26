@@ -23,7 +23,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /home/ubuntu/alzheimers_detection_model
+          sudo cd /root/alzheimers_detection_model
           git pull origin main
           git status
           sudo systemctl stop alzheimers_detection
